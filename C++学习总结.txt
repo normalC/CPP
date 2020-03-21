@@ -1,0 +1,10 @@
+一、# 与 ##
+1. # (stringizing 字符串化操作符)
+	#define one_sharp(x) #x
+	one_sharp(aaa);//  展开为字符串 "aaa"
+2. ## (token-pasting 符号连接操作符)
+宏定义中：参数名，即为形参，如#define sum(a,b) (a+b)；中a和b均为某一参数的代表符号，即形式参数。
+
+二、c/c++中#include <>与#include""区别
+简言之 #include <> 和 #include "" 都会在实现定义的位置查找文件，并将其包含。
+区别是若 #include "" 查找成功，则遮蔽 #include <> 所能找到的同名文件；否则再按照 #include <> 的方式查找文件。另外标准库头文件都放在 #include <> 所查找的位置。
