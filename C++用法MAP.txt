@@ -1,0 +1,47 @@
+﻿一、MAP用法
+
+1，map简介
+
+map是STL的一个关联容器，它提供一对一的hash。
+第一个可以称为关键字(key)，每个关键字只能在map中出现一次；
+第二个可以称为该关键字的值(value)；
+
+2，使用map
+#include <map>
+#include <string>
+#include <iostream>
+using namespace std;
+
+typedef map<string,string> UDT_MAP_INT_CSTRING;
+
+int main()
+{
+UDT_MAP_INT_CSTRING namemap;
+namemap["岳不群"]="华山派掌门人，人称君子剑";
+namemap["张三丰"]="武当掌门人，太极拳创始人";
+namemap["东方不败"]="第一高手，葵花宝典";
+cout << namemap["岳不群"] << endl;
+return 0;
+}
+
+
+3、定义一个map对象
+map<string, string> namemap;
+ 
+
+ 
+// 第一种 用insert函數插入pair
+ 
+    namemap.insert(pair<string, string>("001", "student_zero"));
+
+ 
+// 第二种 用insert函数插入value_type数据
+    
+namemap.insert(map<string, string>::value_type("002", "student_one"));
+ 
+
+// 第三种 用"array"方式插入
+namemap["123"] = "student_first";
+
+
+原文链接：https://blog.csdn.net/sevenjoin/article/details/81943864
