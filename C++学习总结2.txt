@@ -1,0 +1,223 @@
+一、作用
+修饰变量:说明该变量不可以被改变；
+修饰指针:分为指向常量的指针和指针常量；
+常量引:经常用于形参类型，即避免了拷贝，又避免了函数对值的修改；
+修饰成员函数:说明该成员函数内不能修改成员变量。
+
+// 类
+class A
+{
+private:
+    const int a;                // 常对象成员，只能在初始化列表赋值
+
+public:
+    // 构造函数
+    A() { };
+    A(int x) : a(x) { };        // 初始化列表
+
+    // const可用于对重载函数的区分
+    int getValue();             // 普通成员函数
+    int getValue() const;       // 常成员函数，不得修改类中的任何数据成员的值
+};
+
+void function()
+{
+    // 对象
+    A b;                        // 普通对象，可以调用全部成员函数
+    const A a;                  // 常对象，只能调用常成员函数、更新常成员变量
+    const A *p = &a;            // 常指针
+    const A &q = a;             // 常引用
+
+    // 指针
+    char greeting[] = "Hello";
+    char* p1 = greeting;                // 指针变量，指向字符数组变量
+    const char* p2 = greeting;          // 指针变量，指向字符数组常量
+    char* const p3 = greeting;          // 常指针，指向字符数组变量
+    const char* const p4 = greeting;    // 常指针，指向字符数组常量
+}
+
+// 函数
+void function1(const int Var);           // 传递过来的参数在函数内不可变
+void function2(const char* Var);         // 参数指针所指内容为常量
+void function3(char* const Var);         // 参数指针为常指针
+void function4(const int& Var);          // 引用参数在函数内为常量
+
+// 函数返回值
+const int function5();      // 返回一个常数
+const int* function6();     // 返回一个指向常量的指针变量，使用：const int *p = function6();
+int* const function7();     // 返回一个指向变量的常指针，使用：int* const p = function7();
+
+
+
+
+
+二、static作用
+修饰普通变量：修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。
+修饰普通函数：表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命令函数重名，可以将函数定位为 static。
+修饰成员变量：修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。
+修饰成员函数：修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。
+
+
+
+三、this 指针
+
+
+this 指针是一个隐含于每一个成员函数中的特殊指针。它指向正在被该成员函数操作的那个对象。
+当对一个对象调用成员函数时，编译程序先将对象的地址赋给 this 指针，然后调用成员函数，每次成员函数存取数据成员时，由隐含使用 this 指针。
+当一个成员函数被调用时，自动向它传递一个隐含的参数，该参数是一个指向这个成员函数所在的对象的指针。
+this 指针被隐含地声明为: ClassName *const this，这意味着不能给 this 指针赋值；在 ClassName 类的 const 成员函数中，this 指针的类型为：const ClassName* const，这说明不能对 this 指针所指向的这种对象是不可修改的（即不能对这种对象的数据成员进行赋值操作）；
+this 并不是一个常规变量，而是个右值，所以不能取得 this 的地址（不能 &this）。
+在以下场景中，经常需要显式引用 this 指针：
+为实现对象的链式引用；s
+为避免对同一对象进行赋值操作；
+在实现一些数据结构时，如 list。
+
+四、inline 内联函数征
+相当于把内联函数里面的内容写在调用内联函数处；
+相当于不用执行进入函数的步骤，直接执行函数体；
+相当于宏，却比宏多了类型检查，真正具有函数特性；不能包含循环、递归、switch 等复杂操作；
+类中除了虚函数的其他函数都会自动隐式地当成内联函数。
+
+
+五、虚函数（virtual）可以是内联函数（inline）吗？
+虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。
+
+#include <iostream>  
+using namespace std;
+class Base
+{
+public:
+	inline virtual void who()
+	{
+		cout << "I am Base\n";
+	}
+	virtual ~Base() {}
+};
+class Derived : public Base
+{
+public:
+	inline void who()  // 不写inline时隐式内联
+	{
+		cout << "I am Derived\n";
+	}
+};
+
+int main()
+{
+	// 此处的虚函数 who()，是通过类（Base）的具体对象（b）来调用的，编译期间就能确定了，所以它可以是内联的，但最终是否内联取决于编译器。 
+	Base b;
+	b.who();
+
+	// 此处的虚函数是通过指针调用的，呈现多态性，需要在运行时期间才能确定，所以不能为内联。  
+	Base *ptr = new Derived();
+	ptr->who();
+
+	// 因为Base有虚析构函数（virtual ~Base() {}），所以 delete 时，会先调用派生类（Derived）析构函数，再调用基类（Base）析构函数，防止内存泄漏。
+	delete ptr;
+	ptr = nullptr;
+
+	system("pause");
+	return 0;
+} 
+
+六、#pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐。实际对齐长度=min(设置对齐长度，数据的最长长度)
+#pragma pack(4)     // 设定为 4 字节对齐
+
+struct test
+{
+    char m1;
+    double m4;
+    int m3;
+};
+#pragma pack（）
+
+七、位域
+#include <iostream>
+using namespace std;
+
+struct flags
+{
+    unsigned  a : 1;
+    unsigned    : 2;/*该2位不能使用*/
+    unsigned  b : 3;
+    unsigned  c : 2;
+    unsigned  d : 4;
+    unsigned    : 0;//下个位段从下个字节算起。
+    unsigned  e : 5;
+};
+
+using namespace std;
+int main()
+{
+  flags BitTest;
+  BitTest.b=0b111;
+  unsigned i;
+cout<<sizeof(BitTest)<<endl;//8字节
+cout<<sizeof(i)<<endl;//4字节
+cout<<BitTest.b<<endl;//7
+};
+C,C++ 位段变量一般定义为unsigned 无符号数，因为位数不是8的整数倍，带符号数处理，起来比较麻烦。
+如果不怕麻烦int ,char ,short,long 也都可以。另外一般用struct 定义位段,union 没见过有人用。
+
+位域可以用于压缩存储，能用1bit的就绝不用2bit
+位域增加处理时间，访问位域成员时需要把位域从它所在的字中分解出来或把值压缩存到位域所在的字位中
+位域一般使用unsigned数据类型
+未指定占用位默认占用所有位数
+位域以数据类型来区分区域，几种数据类型就表示有几个位域段( 未指定占用位除外 )
+同种位域类使用BIT超过该位域数据类型大小后继续占用该位域数据类型大小
+相邻的两个位域字段的类型不同,则各个编译器的具体实现有差异,VC6采取不压缩方式,GCC和Dev-C++都采用压缩方式
+未用完的BIT还是要占用内存空间，使用int类型的其中4位，后面28位仍然占用空间
+位域遵循结构体对齐原则，整个结构体的总大小为最宽基本类型成员大小的整数倍
+取地址操作符&不能应用在位域字段上，无法取得某个BIT的地址
+位域字段不能是类的静态成员
+位域字段在内存中的位置是按照从低位向高位的顺序放置的
+不要在两个位域中间穿插非位域字段
+
+
+八、C++ 中 struct 和 class
+总的来说，struct 更适合看成是一个数据结构的实现体，class 更适合看成是一个对象的实现体。
+
+九、union 联合：联合（union）是一种节省空间的特殊的类，一个 union 可以有多个数据成员，但是在任意时刻只有一个数据成员可以有值。当某个成员被赋值后其他成员变为未定义状态。/*联合有如下特点：
+默认访问控制符为 public
+可以含有构造函数、析构函数
+不能含有引用类型的成员
+不能继承自其他类，不能作为基类
+不能含有虚函数
+匿名 union 在定义所在作用域可直接访问 union 成员
+匿名 union 不能包含 protected 成员或 private 成员
+全局匿名联合必须是静态（static）的
+*/
+#include<iostream>
+
+union UnionTest {
+    UnionTest() : i(10) {};//可以含有构造函数
+    int i;
+    double d;
+    ~UnionTest() {std::cout<<"byebye"<<std::endl;}//可以含有构造函数
+};
+
+static union {  //全局匿名联合必须是静态（static）的
+    int i;
+    double d;
+    double f;
+
+};
+
+int main() {
+    UnionTest u;
+
+
+    std::cout << u.i << std::endl;  // 输出 UnionTest 联合的 10
+
+    ::i = 20; //全局匿名联合
+    ::f=30.5;
+
+    std::cout << ::i << std::endl;  // 输出全局静态匿名联合的 20
+    std::cout << ::f << std::endl;  // 输出全局静态匿名联合的 20
+
+    i = 30;
+    std::cout << i << std::endl;    // 输出局部匿名联合的 30
+
+    return 0;
+}
+
