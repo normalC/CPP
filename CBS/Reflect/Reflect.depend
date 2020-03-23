@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1584944889 source:f:\mlia\cpp\cbs\reflect\main.cpp
+	"Test.h"
+	"ClassFactory.h"
+
+1584943786 f:\mlia\cpp\cbs\reflect\include\test.h
+	<iostream>
+
+1584945301 f:\mlia\cpp\cbs\reflect\include\classfactory.h
+	<iostream>
+	<string>
+	<map>
+
+1584935056 source:f:\mlia\cpp\cbs\reflect\src\test.cpp
+	"Test.h"
+
+1584935148 source:f:\mlia\cpp\cbs\reflect\src\classfactory.cpp
+	"ClassFactory.h"
+
