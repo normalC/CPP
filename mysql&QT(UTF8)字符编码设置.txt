@@ -1,0 +1,26 @@
+一、QT编辑器字符设置
+工具\选项
+文件编码设置成UTF-8。
+
+二、QT程序中设置
+query.exec("SET NAMES 'UTF8'");
+
+
+三、MySQL中设置
+## UTF 8 Settings
+#init-connect=\'SET NAMES utf8\'
+collation_server=utf8_unicode_ci
+character_set_server=utf8
+#skip-character-set-client-handshake
+#character_sets-dir="/xampp/mysql/share/charsets"
+sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION
+log_bin_trust_function_creators = 1
+
+四、编码异同
+utf8_general_ci 不区分大小写，这个你在注册用户名和邮箱的时候就要使用。
+utf8_general_cs 区分大小写，如果用户名和邮箱用这个 就会照成不良后果
+utf8_bin:字符串每个字符串用二进制数据编译存储。 区分大小写，而且可以存二进制的内容
+
+
+
+
