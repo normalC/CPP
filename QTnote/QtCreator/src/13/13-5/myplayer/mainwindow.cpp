@@ -24,9 +24,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     playlist = new QMediaPlaylist;
-    playlist->addMedia(QUrl::fromLocalFile("E:/src/13/13-5/myplayer/music.mp3"));
-    playlist->addMedia(QUrl::fromLocalFile("E:/src/13/13-5/myplayer/music2.mp3"));
-    playlist->addMedia(QUrl::fromLocalFile("E:/src/13/13-5/myplayer/music3.mp3"));
+    playlist->addMedia(QUrl::fromLocalFile("../myplayer/music.mp3"));
+    playlist->addMedia(QUrl::fromLocalFile("../myplayer/music2.mp3"));
+    playlist->addMedia(QUrl::fromLocalFile("../myplayer/music3.mp3"));
     playlist->setCurrentIndex(0);
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
     player->setPlaylist(playlist);

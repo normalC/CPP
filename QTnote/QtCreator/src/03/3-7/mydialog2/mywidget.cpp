@@ -29,9 +29,9 @@ void MyWidget::on_pushButton_clicked()
     //  QColor color = QColorDialog::getColor(Qt::red, this, tr("颜色对话框"),
     //                                          QColorDialog::ShowAlphaChannel);
 
-    QColorDialog dialog(Qt::red, this);                // 创建对象
-    dialog.setOption(QColorDialog::ShowAlphaChannel); // 显示alpha选项
-    dialog.exec();                                    // 以模态方式运行对话框
+    QColorDialog dialog(Qt::blue, this);                // 创建对象
+   dialog.setOption(QColorDialog::ShowAlphaChannel); // 显示alpha选项
+    dialog.exec();                             // 以模态方式运行对话框
     QColor color = dialog.currentColor();             // 获取当前颜色
 
     qDebug() << "color: " << color;
@@ -46,7 +46,7 @@ void MyWidget::on_pushButton_2_clicked()
     //    qDebug() << "fileName:" << fileName;
 
     QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("文件对话框"),
-                                                          "D:", tr("图片文件(*png *jpg)"));
+                                                          "", tr("图片文件(*png *jpg)"));
     qDebug()<< "fileNames:" << fileNames;
 }
 
@@ -122,7 +122,7 @@ void MyWidget::on_pushButton_6_clicked()
         QCoreApplication::processEvents();      // 避免界面冻结
         if(dialog.wasCanceled()) break;         // 按下取消按钮则中断
     }
-    dialog.setValue(50000);    // 这样才能显示100%，因为for循环中少加了一个数
+    /*dialog.setValue(50000); */   // 这样才能显示100%，因为for循环中少加了一个数
     qDebug() << tr("复制结束！");
 }
 

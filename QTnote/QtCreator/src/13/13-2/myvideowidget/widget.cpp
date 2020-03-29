@@ -9,11 +9,14 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     player = new QMediaPlayer(this);
     videoWidget = new QVideoWidget(this);
     videoWidget->resize(600, 300);
     player->setVideoOutput(videoWidget);
-    player->setMedia(QUrl::fromLocalFile("../myvideowidget/video.wmv"));
+    QStringList filename=QFileDialog::getOpenFileNames(this, tr("文件对话框"),"", tr("图片文件(*wav *jpg)"));
+
+    player->setMedia(QUrl::fromLocalFile(filename));
     player->play();
 
     // 亮度
@@ -46,3 +49,4 @@ Widget::~Widget()
 {
     delete ui;
 }
+

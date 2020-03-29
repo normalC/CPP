@@ -2,8 +2,11 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QFileDialog>
+#include <QString>
 class QMediaPlayer;
 class QVideoWidget;
+
 
 namespace Ui {
 class Widget;
@@ -17,11 +20,15 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+
+
+
 private:
     Ui::Widget *ui;
 
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
+    QString filename;
 
 };
 

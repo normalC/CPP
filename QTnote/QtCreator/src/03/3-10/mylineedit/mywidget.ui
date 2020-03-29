@@ -23,7 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>显示模式：</string>
+    <string>(&amp;A)显示模式：</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit1</cstring>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit1">
@@ -49,7 +52,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>输入掩码：</string>
+    <string>(&amp;B)输入掩码：</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit2</cstring>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit2">
@@ -75,7 +81,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>输入验证：</string>
+    <string>(&amp;C)输入验证：</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit3</cstring>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit3">
@@ -98,7 +107,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>自动完成：</string>
+    <string>(&amp;D)自动完成：</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit4</cstring>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit4">

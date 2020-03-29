@@ -12,9 +12,8 @@ TARGET = mycamera
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        widget.cpp
+SOURCES += main.cpp
 
-HEADERS  += widget.h
+HEADERS  +=
 
-FORMS    += widget.ui
+FORMS    +=

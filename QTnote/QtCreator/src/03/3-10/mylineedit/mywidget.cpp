@@ -12,7 +12,7 @@ MyWidget::MyWidget(QWidget *parent) :
     // 新建验证器，指定范围为100-999
     //  QValidator *validator = new QIntValidator(100, 999, this);
 
-    QRegExp rx("-?\\d{1,3}");
+    QRegExp rx("-?\\d{1,9}");
     QValidator *validator = new QRegExpValidator(rx, this);
 
     // 在行编辑器中使用验证器

@@ -7,6 +7,7 @@ MyWidget::MyWidget(QWidget *parent) :
     ui(new Ui::MyWidget)
 {
     ui->setupUi(this);
+    connect(ui->)
 }
 
 MyWidget::~MyWidget()
