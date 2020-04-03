@@ -18,10 +18,10 @@ MyMainWindow::~MyMainWindow()
 void MyMainWindow::on_pushButton_clicked()
 {
     QSqlQuery query;
-    query.exec("select * from student");
-    while(query.next())
-    {
-        qDebug() << query.value(0).toInt()
-                       << query.value(1).toString();
-    }
+       query.exec("select * from student");
+       while(query.next())
+       {
+           qDebug() << query.value(0).toInt()
+                          << query.value(1).toString();
+       }
 }

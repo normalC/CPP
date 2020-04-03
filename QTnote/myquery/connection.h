@@ -7,12 +7,13 @@
 
 static bool createConnection()
 {
+//    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+//    db.setDatabaseName("mysqlite.db");
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-
-    db.setHostName("localhost");
-    db.setDatabaseName("mydata");
-    db.setUserName("root");
-    db.setPassword("");
+     db.setHostName("localhost");
+     db.setDatabaseName("mydata");
+     db.setUserName("root");
+     db.setPassword("");
     if (!db.open()) {
         QMessageBox::critical(0, qApp->tr("Cannot open database"),
             qApp->tr("Unable to establish a database connection."
@@ -22,7 +23,7 @@ static bool createConnection()
     QSqlQuery query;
     query.exec("create table student (id int primary key, "
                "name varchar(20))");
-    query.exec("insert into student values(0, 'first')");
+    query.exec("insert into student values(0, '测试')");
     query.exec("insert into student values(1, 'second')");
     query.exec("insert into student values(2, 'third')");
     query.exec("insert into student values(3, 'fourth')");
@@ -31,6 +32,3 @@ static bool createConnection()
 }
 
 #endif // CONNECTION_H
-
-
-
