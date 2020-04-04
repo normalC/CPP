@@ -1,0 +1,6 @@
+#pragma execution_character_set("utf-8")
+
+就是设置执行字符集，指示char的执行字符集是UTF-8编码。如果源文件中出现中文，必须要设置为#pragma execution_character_set("utf-8")
+
+
+#if _MSC_VER  判断编译器版本
