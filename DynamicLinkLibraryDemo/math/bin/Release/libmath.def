@@ -1,0 +1,5 @@
+EXPORTS
+    add @1
+    div @2
+    mul @3
+    sub @4

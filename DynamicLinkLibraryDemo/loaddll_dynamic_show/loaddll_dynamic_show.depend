@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1586401015 source:f:\mlia\cpp\dynamiclinklibrarydemo\loaddll_dynamic_show\main.c
+	<stdio.h>
+	<windows.h>
+
