@@ -102,6 +102,10 @@ cout <<"******************" << endl;
   Print(cc);
   cc="sample tex1";
   Print(cc);
+
+  const_cast<void*>(reinterpret_cast<const void*>);
+
+
   return 0;
 
 
