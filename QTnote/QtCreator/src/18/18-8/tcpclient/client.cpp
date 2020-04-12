@@ -35,7 +35,7 @@ void Client::readMessage()
 {
     QDataStream in(tcpSocket);
     // 设置数据流版本，这里要和服务器端相同
-    in.setVersion(QDataStream::Qt_5_6);
+    in.setVersion(QDataStream::Qt_5_9);
 
     // 如果是刚开始接收数据
     if (blockSize == 0) {

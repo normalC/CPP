@@ -31,7 +31,7 @@ void Server::sendMessage()
     QDataStream out(&block, QIODevice::WriteOnly);
 
     // 设置数据流的版本，客户端和服务器端使用的版本要相同
-    out.setVersion(QDataStream::Qt_5_6);
+    out.setVersion(QDataStream::Qt_5_9);
     out << (quint16)0;
     out << "hello TCP!!!";
     out.device()->seek(0);
