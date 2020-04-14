@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1586761218 source:f:\mlia\cpp\reflect_callback\creflect1\main.cpp
+	"CReflectRegister.h"
+
+1586760462 f:\mlia\cpp\reflect_callback\creflect1\include\creflectregister.h
+	<string>
+	<map>
+	"CReflectBase.h"
+
+1586759950 f:\mlia\cpp\reflect_callback\creflect1\include\creflectbase.h
+
+1586760262 source:f:\mlia\cpp\reflect_callback\creflect1\src\ca.cpp
+	"CA.h"
+	<iostream>
+
+1586760238 f:\mlia\cpp\reflect_callback\creflect1\include\ca.h
+	<CReflectBase.h>
+
+1586760553 source:f:\mlia\cpp\reflect_callback\creflect1\src\cb.cpp
+	"CB.h"
+	<iostream>
+
+1586760321 f:\mlia\cpp\reflect_callback\creflect1\include\cb.h
+	<CReflectBase.h>
+
+1586760565 source:f:\mlia\cpp\reflect_callback\creflect1\src\creflectregister.cpp
+	"CReflectRegister.h"
+	"CReflectRegister.h"
+	"CA.h"
+	"CB.h"
+

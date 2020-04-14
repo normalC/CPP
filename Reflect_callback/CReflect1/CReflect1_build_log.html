@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>CReflect1构建日志</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>13-04-2020 at 15:00.18</u><br />
+Build ended on: <u>13-04-2020 at 15:00.23</u><p />
+<b>-------------- Build: Release 在 CReflect1 中 (编译器: GNU GCC Compiler)---------------</b><br />
+mingw32-g++.exe -Wall -fexceptions -O2 -std=c++0x -Iinclude -c F:\MLIA\CPP\Reflect_callback\CReflect1\main.cpp -o obj\Release\main.o<br />
+F:\MLIA\CPP\Reflect_callback\CReflect1\main.cpp: In function 'int main()':<br />
+<font color="#0000ff">F:\MLIA\CPP\Reflect_callback\CReflect1\main.cpp:9:16: warning: deleting object of abstract class type 'CReflectBase' which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]</font><br />
+         delete obj;<br />
+                ^<br />
+<font color="#0000ff">F:\MLIA\CPP\Reflect_callback\CReflect1\main.cpp:16:16: warning: deleting object of abstract class type 'CReflectBase' which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]</font><br />
+         delete obj;<br />
+                ^<br />
+mingw32-g++.exe  -o bin\Release\CReflect1.exe obj\Release\main.o obj\Release\src\CA.o obj\Release\src\CB.o obj\Release\src\CReflectRegister.o  -s<br />
+Output file is bin\Release\CReflect1.exe with size 788.00 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 分, 5 秒)</font><br />
+<font color="#0000ff">0 error(s), 2 warning(s) (0 分, 5 秒)</font><br />
+</tt>
+</body>
+</html>
