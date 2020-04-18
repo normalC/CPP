@@ -1,0 +1,8 @@
+g++ -E main.cpp >out.txt
+
+
+#define MY_PRINTF(...) printf(__VA_ARGS__)
+MY_PRINTF("hello, %s", "world");
+
+==>
+printf("hello, %s", "world");
