@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1587306960 source:e:\ml\cpp\cpp\thinkingincpp\ex01\src\header.cpp
+	<iostream>
+	"header.h"
+
+1587307062 e:\ml\cpp\cpp\thinkingincpp\ex01\include\header.h
+	<iostream>
+	<string>
+
+1587307171 source:e:\ml\cpp\cpp\thinkingincpp\ex01\main.cpp
+	<iostream>
+	<string>
+
