@@ -1,0 +1,11 @@
+﻿/* 
+编译并运行F9
+cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ "$(FILE_NAME)" -o "$(NAME_PART)" & "$(NAME_PART).exe
+编译CTRL+F9
+cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ "$(FILE_NAME)" -o "$(NAME_PART)"
+运行CTRL+F10
+cmd /k cd /d "$(CURRENT_DIRECTORY)"  & "$(NAME_PART).exe
+调试CTRL+F8
+cmd /k cd /d "$(CURRENT_DIRECTORY)" &gdb $(NAME_PART).exe
+
+ */
