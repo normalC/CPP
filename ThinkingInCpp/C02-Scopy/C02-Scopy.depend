@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1587270877 source:e:\ml\cpp\cpp\thinkingincpp\c02-scopy\main.cpp
-	<string>
-	<fstream>
-	<iostream>
-
