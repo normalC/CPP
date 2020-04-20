@@ -10,6 +10,7 @@ int main() {
   cin >> i;
   cout << "Enter another double: ";
   cin >> j;
+  cout <<i<< " " << j<< endl;
   cout << "i > j is " << (i > j) << endl;
   cout << "i < j is " << (i < j) << endl;
   cout << "i >= j is " << (i >= j) << endl;

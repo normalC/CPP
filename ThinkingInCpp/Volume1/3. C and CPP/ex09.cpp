@@ -7,7 +7,7 @@ compile and run it again, and explain what happens.
 using namespace std;
 
 void func() {
-  /*static*/ int i = 0;
+  static int i = 0;
   cout << "i = " << ++i << endl;
 }
 

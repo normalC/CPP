@@ -31,6 +31,7 @@ int main() {
     printArray(b, array_size, "b");
 
     a[12] = 6;
+	cout<<a[11]<<" "<<sizeof(a)<<endl;
 
     printArray(a, array_size, "new a");
     printArray(b, array_size, "new b");

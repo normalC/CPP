@@ -45,5 +45,11 @@ int main() {
          << "\n------------"
          << "\nAdress: " << stPointer << endl;
 
+
+    cout << "\n------------\n"
+         << "fieldOne = " << st.fieldOne
+         << "\nfieldTwo = " << st.fieldTwo
+         << "\nnumber = " << st.number
+         << "\nAdress: " << stPointer << endl;
 return 0;
 }

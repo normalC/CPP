@@ -7,11 +7,13 @@ Modify Menu.cpp to use switch statements instead of if statements.
 using namespace std;
 
 int main() {
+	cout<<"ÄãºÃ£¡"<<endl;
+	
     char c; // To hold response
     bool flag = true;
 
     while(flag) {
-        cout << "MAIN MENU:" << endl;
+        cout << "ÄãºÃ" << endl;
         cout << "l: left, r: right, q: quit -> ";
         cin >> c;
     switch (c) {
@@ -31,7 +33,7 @@ int main() {
 
             case 'b':
                 cout << "you chose 'b'" << endl;
-                continue; // Back to main menu
+                continue; // Back to ?o¨ª
 
             default:
                 cout << "you didn't choose a or b!" << endl;
@@ -45,15 +47,15 @@ int main() {
         switch(c) {
         case 'c':
             cout << "you chose 'c'" << endl;
-            continue; // Back to main menu
+            continue; // Back to ?o¨ª
 
         case 'd':
             cout << "you chose 'd'" << endl;
-            continue; // Back to main menu
+            continue; // Back to ?o¨ª
 
         default:
             cout << "you didn't choose c or d!" << endl;
-            continue; // Back to main menu
+            continue; // Back to ?o¨ª
           }
 
     default:

@@ -5,6 +5,7 @@ and create a map of the resulting memory layout
 **/
 
 #include <iostream>
+#include <typeid>
 using namespace std;
 
 char dog;
@@ -20,7 +21,7 @@ int main() {
   long int i;
   short int j;
   long double k;
-  cout << "f(): " << (long)&f << endl;
+  cout << "f(): " << (long)&f<<typeid(dog).name<< endl;
   cout << "dog: " << (long)&dog << endl;
   cout << "cat: " << (long)&cat << endl;
   cout << "bird: " << (long)&bird << endl;
