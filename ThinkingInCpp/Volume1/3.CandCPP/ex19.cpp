@@ -11,7 +11,7 @@ int main() {
     cout << "sizeof(int) = "<< sizeof(int) << endl;
     for(int i = 0; i < SIZE; i++)
         cout << "&a[" << i << "] = "
-             << (long)&a[i] << endl;
+             << a[i] << endl;
 /////<
     char b[SIZE];
     cout << "\nsizeof(char) = "<< sizeof(char) << endl;

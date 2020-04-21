@@ -25,7 +25,8 @@ int main() {
     cout << x.i << endl;
     x.d = 1.23;
     cout << x.d << endl;
-
+	cout << x.i << endl;
     x.j = 2;
+	cout << x.i << endl;
     cout << x.k << ' ' << x.i << endl; // Prints ubdefined data
 }
