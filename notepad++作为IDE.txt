@@ -1,11 +1,39 @@
 ﻿/* 
 编译并运行F9
-cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ "$(FILE_NAME)" -o "$(NAME_PART)" & "$(NAME_PART).exe
+cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ -g "$(FILE_NAME)" -o "$(NAME_PART)" & "$(NAME_PART).exe
 编译CTRL+F9
-cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ "$(FILE_NAME)" -o "$(NAME_PART)"
+cmd /k cd /d "$(CURRENT_DIRECTORY)" & g++ -g "$(FILE_NAME)" -o "$(NAME_PART)"
 运行CTRL+F10
 cmd /k cd /d "$(CURRENT_DIRECTORY)"  & "$(NAME_PART).exe
 调试CTRL+F8
-cmd /k cd /d "$(CURRENT_DIRECTORY)" &gdb $(NAME_PART).exe
+cmd /k cd /d "$(CURRENT_DIRECTORY)" &gdb32 $(NAME_PART).exe
 
  */
+ 
+ 
+ 
+ 
+ gdb主要调试的是C/C++的程序。要调试C/C++的程序，首先在编译时，必须要把调试信息加到可执行文件中。使用编译器(cc/gcc/g++)的 -g 参数即可。如： 
+如果没有-g，将看不见程序的函数名和变量名，代替它们的全是运行时的内存地址。当用-g把调试信息加入，并成功编译目标代码以后，看看如何用gdb来调试。
+
+要用gdb调试程序，必须在编译时加上-g和-ggdb选项，-g选项的作用是在可执行文件中加入源文件信息，但并不是将源文件嵌入可执行文件，
+所以在调试时必须保证gdb必须能找到源文件.
+
+-g 和 -ggdb 都是令 gcc 生成调试信息，但是它们也是有区别的
+
+           
+选项	描述
+g	该选项可以利用操作系统的“原生格式（native format）”生成调试信息。GDB 可以直接利用这个信息，其它调试器也可以使用这个调试信息
+ggdb	使 GCC为GDB 生成专用的更为丰富的调试信息，但是，此时就不能用其他的调试器来进行调试了 (如 ddx)
+-g 和 -ggdb 也是分级别的
+
+               
+选项	描述
+g1	级别1（-g1）不包含局部变量和与行号有关的调试信息，因此只能够用于回溯跟踪和堆栈转储之用。回溯跟踪指的是监视程序在运行过程中的函数调用历史，堆栈转储则是一种以原始的十六进制格式保存程序执行环境的方法，两者都是经常用到的调试手段
+g2	这是默认的级别，此时产生的调试信息包括扩展的符号表、行号、局部或外部变量信息
+g3	包含级别2中的所有调试信息，以及源代码中定义的宏
+
+
+gdb    [-help] [-nx] [-q] [-batch] [-cd=dir] [-f] [-b bps]          [-tty=dev] [-s symfile] [-e prog] [-se prog] [-c core]          [-x cmds] [-d dir] [prog[core|procID]]
+————————————————
+

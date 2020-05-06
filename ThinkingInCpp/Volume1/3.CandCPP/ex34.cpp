@@ -16,7 +16,12 @@ DF(a)
 DF(b)
 DF(c)
 DF(d)
-
+/*
+string a() { return "function " "a" " called..."; }
+string b() { return "function " "b" " called..."; }
+string c() { return "function " "c" " called..."; }
+string d() { return "function " "d" " called..."; }
+*/
 string (*func_table[])() = { a, b, c, d };
 
 int main() {
@@ -30,6 +35,8 @@ int main() {
       break; // ... out of while(1)
     if ( c < 'a' || c > 'd' )
       continue;
+    
     cout << (*func_table[c - 'a'])() << endl;
+	cout<<&func_table[c - 'a']<<endl;
   }
 }
