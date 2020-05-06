@@ -1,23 +1,17 @@
-//: C03:PointerIncrement2.cpp
+//: C03:PointerToFunction.cpp
+// Defining and using a pointer to a function
 #include <iostream>
 using namespace std;
 
-typedef struct {
-  char c;
-  short s;
-  int i;
-  long l;
-  float f;
-  double d;
-  long double ld;
-} Primitives;
+void func(void) {
+  cout << "func() called..." << endl;
+}
 
 int main() {
-  Primitives p[10];
-  Primitives* pp = p;
-  cout << "sizeof(Primitives) = " 
-       << sizeof(Primitives) << endl;
-  cout << "pp = " << (long)pp << endl;
-  pp++;
-  cout << "pp = " << (long)pp << endl;
+  void (*fp)(void);  // Define a function pointer
+  fp = func;  // Initialize it
+  (*fp)();    // Dereferencing calls the function
+  void (*fp2)(void) = func;  // Define and initialize
+  (*fp2)();
 } ///:~
+// After the pointer 
