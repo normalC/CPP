@@ -1,10 +1,7 @@
-# 1 "ex34.cpp"
+# 1 "CatsInHats.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "ex34.cpp"
-
-
-
+# 1 "CatsInHats.cpp"
 
 
 # 1 "E:/Program Files (x86)/CodeBlocks/MinGW/lib/gcc/mingw32/5.1.0/include/c++/iostream" 1 3
@@ -16490,35 +16487,30 @@ namespace std
 
 
 }
-# 7 "ex34.cpp" 2
+# 4 "CatsInHats.cpp" 2
 
-
-
-# 9 "ex34.cpp"
+# 4 "CatsInHats.cpp"
 using namespace std;
 
 
 
 
 
-string a() { return "function " "a" " called..."; }
-string b() { return "function " "b" " called..."; }
-string c() { return "function " "c" " called..."; }
-string d() { return "function " "d" " called..."; }
+void a() { cout << "function " "a" " called..." << endl; }; void b() { cout << "function " "b" " called..." << endl; }; void c() { cout << "function " "c" " called..." << endl; }; void d() { cout << "function " "d" " called..." << endl; }; void e() { cout << "function " "e" " called..." << endl; }; void f() { cout << "function " "f" " called..." << endl; }; void g() { cout << "function " "g" " called..." << endl; };
 
-string (*func_table[])() = { a, b, c, d };
+void (*func_table[])() = { a, b, c, d, e, f, g };
 
 int main() {
-
   while(1) {
-    cout << "press a key from 'a' to 'd' "
+    cout << "press a key from 'a' to 'g' "
       "or q to quit" << endl;
     char c, cr;
     cin.get(c); cin.get(cr);
     if ( c == 'q' )
       break;
-    if ( c < 'a' || c > 'd' )
+    if ( c < 'a' || c > 'g' )
       continue;
-    cout << (*func_table[c - 'a'])() << endl;
+    cout << "c - 'a':"<<c - 'a'<< endl;
+    (*func_table[c - 'a'])();
   }
 }
