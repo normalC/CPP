@@ -23,7 +23,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Useful.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
