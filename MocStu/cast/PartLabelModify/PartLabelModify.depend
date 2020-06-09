@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1514140582 source:f:\mlia\cpp\mocstu\cast\partlabelmodify\main.cpp
+	<windows.h>
+	<commctrl.h>
+	<stdio.h>
+	"resource.h"
+
+1514140582 f:\mlia\cpp\mocstu\cast\partlabelmodify\resource.h
+
