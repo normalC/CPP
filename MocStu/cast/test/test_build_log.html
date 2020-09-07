@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>test构建日志</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>14-08-2020 at 16:30.15</u><br />
+Build ended on: <u>14-08-2020 at 16:30.21</u><p />
+<b>-------------- Build: Release 在 test 中 (编译器: GNU GCC Compiler)---------------</b><br />
+mingw32-gcc.exe -Wall -O2 -std=c11  -c F:\MLIA\CPP\MocStu\cast\test\main.c -o obj\Release\main.o<br />
+F:\MLIA\CPP\MocStu\cast\test\main.c: In function 'main':<br />
+<font color="#0000ff">F:\MLIA\CPP\MocStu\cast\test\main.c:3:5: warning: implicit declaration of function 'scanf' [-Wimplicit-function-declaration]</font><br />
+     scanf("%d", &amp;day);<br />
+     ^<br />
+<font color="#0000ff">F:\MLIA\CPP\MocStu\cast\test\main.c:3:5: warning: incompatible implicit declaration of built-in function 'scanf'</font><br />
+F:\MLIA\CPP\MocStu\cast\test\main.c:3:5: note: include '&lt;stdio.h&gt;' or provide a declaration of 'scanf'<br />
+<font color="#0000ff">F:\MLIA\CPP\MocStu\cast\test\main.c:3:11: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'enum week *' [-Wformat=]</font><br />
+     scanf("%d", &amp;day);<br />
+           ^<br />
+<font color="#0000ff">F:\MLIA\CPP\MocStu\cast\test\main.c:5:19: warning: implicit declaration of function 'puts' [-Wimplicit-function-declaration]</font><br />
+         case Mon: puts("Monday"); break;<br />
+                   ^<br />
+mingw32-g++.exe  -o bin\Release\test.exe obj\Release\main.o  -s<br />
+Output file is bin\Release\test.exe with size 8.50 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 分, 6 秒)</font><br />
+<font color="#0000ff">0 error(s), 4 warning(s) (0 分, 6 秒)</font><br />
+</tt>
+</body>
+</html>

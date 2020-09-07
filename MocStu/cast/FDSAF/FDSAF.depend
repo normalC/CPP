@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1597386491 source:f:\mlia\cpp\mocstu\cast\fdsaf\main.c
+	<stdio.h>
+	<stdlib.h>
+
